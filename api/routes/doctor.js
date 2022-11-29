@@ -3,15 +3,14 @@ const bcrypt = require('bcrypt');
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
-<<<<<<< HEAD
+
 var jwt = require('jsonwebtoken');
-=======
->>>>>>> 1cbbf67 (make it better)
+
 const randomId = require('random-id');
 
 const Pool = require('pg').Pool
 const pool = new Pool({
-<<<<<<< HEAD
+
 
   user: 'postgres',
     host: 'localhost',
@@ -28,13 +27,13 @@ const pool = new Pool({
 //   database: process.env.PGSQL_DATABASE,
 //   password: process.env.PGSQL_PASSWORD,
 //   port: 5432
-=======
-  user: 'postgres',//process.env.PGSQL_MYUSER,
-  host: process.env.PGSQL_HOST,
-  database: 'afiagate',//process.env.PGSQL_DATABASE,
-  password: process.env.PGSQL_PASSWORD,
-  port: 5432
->>>>>>> 1cbbf67 (make it better)
+
+  // user: 'postgres',//process.env.PGSQL_MYUSER,
+  // host: process.env.PGSQL_HOST,
+  // database: 'afiagate',//process.env.PGSQL_DATABASE,
+  // password: process.env.PGSQL_PASSWORD,
+  // port: 5432
+
   })
 
 
@@ -60,7 +59,7 @@ var pattern = 'aA0'
  
 var customid = randomId(len, pattern)
 
-<<<<<<< HEAD
+
 
 
 router.post('/login', (req, res, next)=>{
@@ -109,12 +108,10 @@ router.post('/login', (req, res, next)=>{
 });
 
 
-//add doctor to database
-router.post('/signup',upload.single('photourl'), (req, res, next)=> {
-=======
+
 //add doctor to database
 router.post('/signup',upload.single('photoURL'), (req, res, next)=> {
->>>>>>> 1cbbf67 (make it better)
+
 
 
     const sqlCheck = 'SELECT id FROM doctors WHERE contact=$1';
@@ -148,12 +145,9 @@ router.post('/signup',upload.single('photoURL'), (req, res, next)=> {
     const photoURL = `http://192.168.2.119:5000/${req.file.path}`;
     const regnumber = req.body.regnumber;
 
-<<<<<<< HEAD
-    
-    const sqlInsert = 'INSERT INTO doctors (username, password, contact, speciality, photourl,booking,time,charges,patient_username,patient_contact, verified, regnumber) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12);';
-=======
+
+    //const sqlInsert = 'INSERT INTO doctors (username, password, contact, speciality, photourl,booking,time,charges,patient_username,patient_contact, verified, regnumber) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12);';
     const sqlInsert = 'INSERT INTO doctors (username, password, contact, speciality, photourl, verified, regnumber) VALUES ($1, $2, $3, $4, $5, $6, $7);';
->>>>>>> 1cbbf67 (make it better)
     pool.query(sqlInsert,[ username,password, contact, speciality, photoURL, "No", regnumber ], (error, results) =>{
         if (error) { 
             throw error

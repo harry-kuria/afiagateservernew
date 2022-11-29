@@ -2,11 +2,8 @@ const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const router = express.Router();
-<<<<<<< HEAD
-var jwt = require('jsonwebtoken');
-=======
 
->>>>>>> 1cbbf67 (make it better)
+var jwt = require('jsonwebtoken');
 const Pool = require('pg').Pool
 const pool = new Pool({
     user: 'postgres',
@@ -29,7 +26,6 @@ const storage = multer.diskStorage({
 const upload = multer({storage: storage });
 
 
-<<<<<<< HEAD
 router.post('/login', (req, res, next)=>{
 
   const sqlcheck = 'SELECT * FROM facilities WHERE facilityname=$1 AND contact=$2';
@@ -75,8 +71,6 @@ router.post('/login', (req, res, next)=>{
   })
 });
 
-=======
->>>>>>> 1cbbf67 (make it better)
 router.post('/signup',upload.single('photoURL'), (req, res, next)=> {
 
 

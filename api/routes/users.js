@@ -29,17 +29,10 @@ router.post('/login', (req, res, next)=>{
     }
     else {
       // If the user exists, compare the hashed password from the database with the password from the request
-<<<<<<< HEAD
-      var user = results.rows[0];
-      if (user){
-        // If the passwords match, create a JWT
-        var token = jwt.sign({ user: user }, "YesuNiWanguNiWaUzimaWaMileleNaAnafanyaMamboAmbayoMwanadamuHaweziKufanya", {
-=======
       var user = results[0];
       if (user){
         // If the passwords match, create a JWT
         var token = jwt.sign({ user: user }, process.env.SECRET, {
->>>>>>> 1cbbf67 (make it better)
           expiresIn: 86400 // expires in 24 hours
         });
  
@@ -48,13 +41,7 @@ router.post('/login', (req, res, next)=>{
       }
       else {
          // If the user doesn't exist, return an error
-<<<<<<< HEAD
-         res.status(404).send(req.body.username);
-         //res.send(req.body.username);
-         console.log(req.body.username)
-=======
          res.status(404).send('User not found');
->>>>>>> 1cbbf67 (make it better)
       }
     }
     // if (results.rows[0]){

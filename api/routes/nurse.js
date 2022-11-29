@@ -4,11 +4,9 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const randomId = require('random-id');
-<<<<<<< HEAD
-var jwt = require('jsonwebtoken');
-=======
 
->>>>>>> 1cbbf67 (make it better)
+var jwt = require('jsonwebtoken');
+
 const Pool = require('pg').Pool
 const pool = new Pool({
     user: 'postgres',
@@ -41,7 +39,6 @@ var pattern = 'aA0'
  
 var customid = randomId(len, pattern)
 
-<<<<<<< HEAD
 
 router.post('/login', (req, res, next)=>{
 
@@ -87,8 +84,6 @@ router.post('/login', (req, res, next)=>{
       // }
     })
   });
-=======
->>>>>>> 1cbbf67 (make it better)
 //add doctor to database
 router.post('/',upload.single('photoURL'), (req, res, next)=> {
 
